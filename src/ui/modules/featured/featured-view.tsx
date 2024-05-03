@@ -18,6 +18,7 @@ const featuresData: FeaturedListInterface[] = [
   {
     imagePath: "/assets/images/enfant.jpg",
     imageAlt: "Ilustration enfant",
+
     title: "Accueil",
     Description:
       "Nous acceuillons les nouvelles familles a travers de reunion d'échange afin de mieux les informer ",
@@ -25,6 +26,7 @@ const featuresData: FeaturedListInterface[] = [
   {
     imagePath: "/assets/images/reunion3.png",
     imageAlt: "Ilustration reunion",
+
     title: "Representant",
     Description:
       "Nous représentons les familles au conseil d’établissement et auprès de l’organisme de gestion de l'établissement",
@@ -32,6 +34,7 @@ const featuresData: FeaturedListInterface[] = [
   {
     imagePath: "/assets/images/cirque.png",
     imageAlt: "Ilustration cirque",
+
     title: "Organisation",
     Description:
       "nous sommes charger de l'organisation d'événements tout au long de l'année et de l'accompagnement des temps forts de la vie de l'école (fête de Noël,distribution chocolats de pâques kermesse de l’école...)",
@@ -39,6 +42,7 @@ const featuresData: FeaturedListInterface[] = [
   {
     imagePath: "/assets/images/bus2.jpg",
     imageAlt: "Ilustration bus",
+
     title: "Participation ",
     Description:
       "Nous participons de l'organisation des diverses activités et manifestations en collaboration avec l’équipe enseignante ( gouter récréative, carnaval, sorties scolaires/spectacles...)",
@@ -53,16 +57,20 @@ export const FeaturedView = () => {
     >
       <div className="relative w-[140px] h-[140px] rounded-full mb-6 p-10 ">
         <Image
-          fill
+          priority
           src={feature.imagePath}
           alt={feature.imageAlt}
           className="rounded-full blur-xl"
+          fill
+          sizes="fill"
         />
         <Image
-          fill
+          priority
           src={feature.imagePath}
           alt={feature.imageAlt}
           className="rounded-full"
+          fill
+          sizes="fill"
         />
       </div>
       <Typography
@@ -137,6 +145,7 @@ export const FeaturedView = () => {
         <Image
           src="/assets/images/apel2.jpg"
           alt=""
+          priority
           width={130}
           height={130}
           className="max-sm:-mt-10"
@@ -146,10 +155,10 @@ export const FeaturedView = () => {
             <Image
               src="/assets/images/tache.jpg"
               alt=""
+              priority
               width={130}
               height={130}
-              className="w-[600px] opacity-40 items-end max-sm:mt-20 max-sm:w-[300px]
-               "
+              className="w-[600px] opacity-40 items-end max-sm:mt-20 max-sm:w-[300px]"
             />
           </label>
         </div>

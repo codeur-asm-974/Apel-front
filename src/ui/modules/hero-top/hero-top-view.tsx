@@ -16,6 +16,7 @@ export const HeroTopView = () => {
             Votre école Sainte-Marguerite
           </Typography>
           <Image
+            priority
             src="/assets/images/ecole.jpg"
             alt="illustration ecole Sainte-Marguerite"
             width={650}
@@ -56,6 +57,7 @@ export const HeroTopView = () => {
             alt="illustration logo APEL"
             width={550}
             height={334}
+            priority
             className="max-sm:relative max-sm:left-0 lg:absolute left-6 top-3  z-0   "
           />
 

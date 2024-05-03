@@ -45,7 +45,7 @@ export const Navigations = () => {
             className="max-lg:text-caption4 space-x-2.5  xl:block flex items-center xl:space-x-8 "
           >
             <ActivLink href="/#">Acceuil</ActivLink>
-            <ActivLink href="/desing">Actualité</ActivLink>
+            <ActivLink href="/#">Actualité</ActivLink>
           </Typography>
 
           <div className="items-center gap-2 hidden sm:flex">

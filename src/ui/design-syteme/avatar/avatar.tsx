@@ -46,9 +46,9 @@ export const Avatar = ({ size = "medium", src, alt, isLoading }: props) => {
         )}
       />
       <Image
-        fill
         src={src ? src : "/assets/svg/paresseux.svg"}
         alt={alt}
+        sizes="fill"
         className={clsx(
           isLoading && "blur-[2px]",
           "object-cover object-center rounded-full animate"

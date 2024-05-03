@@ -1,7 +1,6 @@
 import { Layout } from "@/ui/components/navigation/layout";
 import { Seo } from "@/ui/components/seo";
 import { LandingPageContainer } from "@/ui/modules/landing-page/components/landing-page-container";
-import Head from "next/head";
 
 export default function Home() {
   return (
@@ -11,7 +10,7 @@ export default function Home() {
         description="Site de l'APEL Sainte-Marguerite"
       />
       <div>
-        <Layout>
+        <Layout isDisplayBreadcrumbs={false}>
           <LandingPageContainer />
         </Layout>
       </div>
