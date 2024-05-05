@@ -4,8 +4,12 @@ import { Typography } from "@/ui/design-syteme/typography/typography";
 import Image from "next/image";
 import Link from "next/link";
 import { RegisterForm } from "./register-form";
+import { FormsType } from "@/types/form";
 
-export const RegisterView = () => {
+interface Props {
+  form: FormsType;
+}
+export const RegisterView = ({ form }: Props) => {
   return (
     <Container className=" md:grid md:grid-cols-2 md:gap-20 md:mb-32">
       <div className="flex items-center ">
@@ -33,7 +37,24 @@ export const RegisterView = () => {
               </Typography>
             </div>
           </div>
-          <RegisterForm />
+          <RegisterForm form={form} />
+          <Typography
+            variant="caption4"
+            theme="gray"
+            className="max-w-md mx-auto space-y-1 text-center"
+          >
+            <div>En t’inscrivant, tu acceptes les</div>
+            <div>
+              <Link href="/#" className="text-gray">
+                Conditions d&apos;utilisation
+              </Link>{" "}
+              et la{" "}
+              <Link href="/#" className="text-gray">
+                Politique de confidentialité
+              </Link>
+              .
+            </div>
+          </Typography>
         </Box>
       </div>
     </Container>

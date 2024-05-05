@@ -157,16 +157,17 @@ export const Button = ({
   );
   const buttonElement = (
     <button
-      type="button"
+      type={type}
       className={clsx(
         variantStyles,
         icoSize,
         sizeStyles,
         isLoading && "cursor-wait relative ",
+        fullWith && "w-full",
         "relative animate"
       )}
       onClick={handelClick}
-      disabled={disabled}
+      disabled={disabled || isLoading ? true : false}
     >
       {" "}
       {buttonContent}
