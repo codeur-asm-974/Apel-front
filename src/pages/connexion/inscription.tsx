@@ -1,3 +1,4 @@
+import { GUEST } from "@/lib/session status";
 import { Layout } from "@/ui/components/navigation/layout";
 import { Seo } from "@/ui/components/seo";
 import { RegisterContaire } from "@/ui/modules/authentification/register/register-contaire";
@@ -10,7 +11,7 @@ export default function Register() {
         description="Page d'inscription sur le site de l'APEL Sainte-Marguerite"
       />
       <div>
-        <Layout>
+        <Layout sessionStatus={GUEST}>
           <RegisterContaire />
         </Layout>
       </div>

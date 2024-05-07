@@ -48,6 +48,8 @@ export const Avatar = ({ size = "medium", src, alt, isLoading }: props) => {
       <Image
         src={src ? src : "/assets/svg/paresseux.svg"}
         alt={alt}
+        width={60}
+        height={60}
         sizes="fill"
         className={clsx(
           isLoading && "blur-[2px]",

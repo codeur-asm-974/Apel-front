@@ -1,3 +1,4 @@
+import { GUEST } from "@/lib/session status";
 import { Layout } from "@/ui/components/navigation/layout";
 import { Seo } from "@/ui/components/seo";
 import { ForgetPAsswordContainer } from "@/ui/modules/authentification/forget-passeword/forget-password-container";
@@ -10,7 +11,7 @@ export default function ForgetPassword() {
         description="Site de l'APEL Sainte-Marguerite"
       />
       <div>
-        <Layout>
+        <Layout sessionStatus={GUEST}>
           <ForgetPAsswordContainer />
         </Layout>
       </div>

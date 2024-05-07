@@ -4,8 +4,12 @@ import { RegisterFormFielsType } from "@/types/form";
 import { toast } from "react-toastify";
 
 import { set } from "firebase/database";
-import { firebaseCreateUser } from "@/api/authentification";
+import {
+  firebaseCreateUser,
+  sendEmailVerificationProcedure,
+} from "@/api/authentification";
 import { UseToggle } from "@/hooks/use-toggle";
+import { firestoreCreateDocument } from "@/api/firestore";
 
 export const RegisterContaire = () => {
   const { value: isLoading, setValue: setIsLoading } = UseToggle({});
@@ -19,6 +23,28 @@ export const RegisterContaire = () => {
     reset,
   } = useForm<RegisterFormFielsType>();
 
+  const handelCreateUserDocument = async (
+    collectionName: string,
+    datadocumentID: string,
+    document: object
+  ) => {
+    const { error } = await firestoreCreateDocument(
+      collectionName,
+      datadocumentID,
+      document
+    );
+    if (error) {
+      toast.error(error.message);
+      setIsLoading(false);
+      return;
+    }
+
+    toast.success("Votre compte a été créé avec succès.");
+    setIsLoading(false);
+    reset();
+    sendEmailVerificationProcedure();
+  };
+
   const handleCreateUserAuthentification = async ({
     email,
     password,
@@ -30,13 +56,15 @@ export const RegisterContaire = () => {
       toast.error(error.message);
       return;
     }
-    //@ todo: save user document
+    const userDocumentData = {
+      email: email,
+      how_did_hear: how_did_hear,
+      uid: data.uid,
+      creation_date: new Date(),
+    };
 
-    toast.success("Votre compte a été créé avec succès.");
-    setIsLoading(false);
-    reset;
+    handelCreateUserDocument("users", data.uid, userDocumentData);
   };
-
   const onSubmit: SubmitHandler<RegisterFormFielsType> = async (formData) => {
     setIsLoading(true);
 
